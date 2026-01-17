@@ -1,0 +1,52 @@
+// ============================================================================
+// Counter Block Diagram
+// ============================================================================
+//
+//                    counter_32bit Module
+//    ┌─────────────────────────────────────────────────────┐
+//    │                                                       │
+//    │                   32-BIT UP COUNTER                   │
+//    │               (Parameterized Design)                  │
+//    │                                                       │
+//    │   ┌──────────────────────────────────────────────┐   │
+//    │   │                                              │   │
+// ───┼──►│ clk                                          │   │
+//    │   │         ┌─────────────────────┐             │   │
+// ───┼──►│ rst_n   │   Counter Register  │             │   │
+//    │   │         │     [WIDTH-1:0]     │             │◄──┼─── count[31:0]
+// ───┼──►│ enable  │                     │             │   │
+//    │   │         └──────────┬──────────┘             │   │
+//    │   │                    │                        │   │
+//    │   │         ┌──────────▼──────────┐             │   │
+//    │   │         │   Increment Logic   │             │   │
+//    │   │         │    count + 1'b1     │             │   │
+//    │   │         └─────────────────────┘             │   │
+//    │   │                    │                        │   │
+//    │   │         ┌──────────▼──────────┐             │   │
+//    │   │         │  Overflow Detector  │             │◄──┼─── overflow
+//    │   │         │  (count == MAX)     │             │   │
+//    │   │         └─────────────────────┘             │   │
+//    │   │                                              │   │
+//    │   └──────────────────────────────────────────────┘   │
+//    │                                                       │
+//    └─────────────────────────────────────────────────────┘
+//
+// Parameters:
+//   - WIDTH: Counter bit width (default = 32)
+//
+// Inputs:
+//   - clk:    Clock signal (positive edge triggered)
+//   - rst_n:  Active-low asynchronous reset
+//   - enable: Counter enable (active high)
+//
+// Outputs:
+//   - count[WIDTH-1:0]: Current counter value
+//   - overflow:         High when counter reaches maximum value
+//
+// Functional Description:
+//   1. On reset (rst_n = 0): Counter = 0
+//   2. On clock edge with enable=1: Counter increments by 1
+//   3. On clock edge with enable=0: Counter holds value
+//   4. Overflow flag indicates counter at maximum value
+//
+// ============================================================================
