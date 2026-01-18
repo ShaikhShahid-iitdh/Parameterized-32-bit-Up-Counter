@@ -1,0 +1,75 @@
+
+================================================================================
+                    QUALITY OF RESULTS (QoR) REPORT
+================================================================================
+Design: counter_32bit
+Date: 2025-12-04 00:12:49
+Tool: Synopsys Design Compiler (Simulated)
+Technology: Generic 45nm (Typical)
+================================================================================
+
+TIMING SUMMARY
+--------------------------------------------------------------------------------
+Critical Path Setup Slack:        1.23 ns (MET)
+Critical Path Hold Slack:         0.45 ns (MET)
+Worst Negative Slack (WNS):       1.23 ns
+Total Negative Slack (TNS):       0.00 ns
+Number of Failing Endpoints:      0
+
+Clock Period:                     10.00 ns
+Clock Frequency:                 100.00 MHz
+Achieved Frequency:              112.36 MHz (12% margin)
+
+AREA SUMMARY
+--------------------------------------------------------------------------------
+Combinational Area:             458.32 µm²
+Non-combinational Area:         892.16 µm²
+Total Cell Area:               1350.48 µm²
+Net Interconnect Area:          421.85 µm²
+Total Area:                    1772.33 µm²
+
+Cell Count:
+  Sequential Cells (DFF):           32
+  Combinational Cells:              68
+  Buffer/Inverter Cells:            12
+  Total Cells:                     112
+
+POWER SUMMARY (Estimated @100MHz)
+--------------------------------------------------------------------------------
+Internal Power:                  125.34 µW
+Switching Power:                  87.21 µW
+Leakage Power:                    15.67 µW
+Total Power:                     228.22 µW
+
+DESIGN HIERARCHY
+--------------------------------------------------------------------------------
+Design: counter_32bit
+  Instances: 1
+  Cells: 112
+  Nets: 145
+  Ports: 35 (3 inputs, 33 outputs)
+
+OPTIMIZATION SUMMARY
+--------------------------------------------------------------------------------
+Compile Strategy:                compile_ultra
+Optimization Effort:             high
+Area Optimization:               enabled
+Power Optimization:              enabled
+Timing Optimization:             enabled
+
+Design Rule Violations:          0
+Constraint Violations:           0
+
+VERIFICATION STATUS
+--------------------------------------------------------------------------------
+Check Design:                    PASSED
+Design Rule Check:               PASSED  
+Timing Check:                    PASSED
+Constraint Check:                PASSED
+
+================================================================================
+                            QoR: EXCELLENT
+================================================================================
+All timing constraints are met with positive slack.
+Design is ready for gate-level simulation and physical design.
+================================================================================

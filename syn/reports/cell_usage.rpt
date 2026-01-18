@@ -1,0 +1,92 @@
+
+================================================================================
+                         CELL USAGE REPORT
+================================================================================
+Design: counter_32bit
+Technology Library: typical.db (Generic 45nm)
+================================================================================
+
+CELL INSTANCE SUMMARY
+--------------------------------------------------------------------------------
+Cell Type            Library        Instances    Ref Count    Total Area
+                     Reference                                  (µm²)
+--------------------------------------------------------------------------------
+DFFQX1              DFFQX1               32           1          832.00
+AND2X1              AND2X1               12           1           84.00
+AND2X2              AND2X2                8           1           72.00
+OR2X1               OR2X1                 6           1           42.00
+XOR2X1              XOR2X1               18           1          144.00
+INVX1               INVX1                 8           1           32.00
+BUFX2               BUFX2                 4           1           24.00
+MUX2X1              MUX2X1               10           1           90.00
+AOI21X1             AOI21X1               2           1           30.00
+--------------------------------------------------------------------------------
+TOTAL                                   100           9         1350.00
+
+DETAILED INSTANCE LIST
+--------------------------------------------------------------------------------
+Instance Name              Cell Type    Fanout    Area (µm²)    Net
+--------------------------------------------------------------------------------
+Sequential Elements:
+  count_reg[0]             DFFQX1          3         26.00      count[0]
+  count_reg[1]             DFFQX1          3         26.00      count[1]
+  count_reg[2]             DFFQX1          3         26.00      count[2]
+  count_reg[3]             DFFQX1          3         26.00      count[3]
+  count_reg[4]             DFFQX1          3         26.00      count[4]
+  ...
+  count_reg[31]            DFFQX1          2         26.00      count[31]
+
+Combinational Logic:
+  U_add_1                  XOR2X1          2          8.00      n45
+  U_add_2                  AND2X1          1          7.00      n46
+  U_add_3                  XOR2X1          2          8.00      n47
+  U_add_4                  AND2X2          1          9.00      n48
+  ...
+  U_overflow_1             AND2X2          1          9.00      n112
+  U_overflow_2             INVX1           1          4.00      n113
+  
+Control Logic:
+  U_enable_buf             BUFX2           8          6.00      enable_buf
+  U_mux_0                  MUX2X1          1          9.00      n115
+  U_mux_1                  MUX2X1          1          9.00      n116
+  ...
+
+FANOUT DISTRIBUTION
+--------------------------------------------------------------------------------
+Fanout Range        Instance Count    Percentage
+--------------------------------------------------------------------------------
+0 - 1                      45             40.2%
+2 - 4                      52             46.4%
+5 - 8                      12             10.7%
+9 - 16                      3              2.7%
+> 16                        0              0.0%
+
+High Fanout Nets:
+  clk                    Fanout: 32
+  rst_n                  Fanout: 32
+  enable_buf             Fanout: 16
+
+LIBRARY CELL DISTRIBUTION
+--------------------------------------------------------------------------------
+[Sequential Cells]  ████████████████████████████████████  32 (28.6%)
+[Combinational]     ████████████████████████████████████████████  68 (60.7%)
+[Buffers]           ████  12 (10.7%)
+
+REFERENCE UTILIZATION
+--------------------------------------------------------------------------------
+Library: typical.db
+  Total Cells Available:    ~500
+  Cells Used:                  9 (1.8%)
+  
+Cell Categories:
+  Sequential:          1 type used (DFF)
+  Combinational:       7 types used
+  Buffers/Inverters:   2 types used
+  
+Unused Cell Types:
+  - LATCH* (latches intentionally avoided)
+  - TIE* (tie cells not needed)
+  - ANTENNA* (antenna diodes added in P&R)
+
+STATUS: Cell usage is optimal and efficient
+================================================================================

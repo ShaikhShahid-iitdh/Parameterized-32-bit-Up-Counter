@@ -1,0 +1,142 @@
+
+================================================================================
+                        DESIGN RESOURCES REPORT
+================================================================================
+Design: counter_32bit
+Hierarchy Level: Top
+================================================================================
+
+DESIGN OBJECT COUNTS
+--------------------------------------------------------------------------------
+Object Type                      Count        Percentage
+--------------------------------------------------------------------------------
+Ports:                             35            -
+  Input Ports:                      3          8.6%
+  Output Ports:                    33         94.3%
+  Inout Ports:                      0          0.0%
+
+Nets:                             145            -
+  Signal Nets:                    113         77.9%
+  Power Nets:                       1          0.7%
+  Ground Nets:                      1          0.7%
+  Clock Nets:                       1          0.7%
+
+Cells:                            112            -
+  Sequential Cells:                32         28.6%
+  Combinational Cells:             68         60.7%
+  Buffer/Inverter Cells:           12         10.7%
+  
+Registers:                         32            -
+  1-bit Registers:                 32        100.0%
+  
+References:                         9            -
+  Leaf Cells:                       9        100.0%
+  Hierarchical:                     0          0.0%
+
+SEQUENTIAL RESOURCES
+--------------------------------------------------------------------------------
+Register Type           Count    Bits    Reset    Clock    Enable
+--------------------------------------------------------------------------------
+DFFQX1                    32      32      Async    clk      enable
+                        ----     ---
+Total Registers:          32      32
+
+Reset Type Distribution:
+  Asynchronous Reset:     32    100.0%
+  Synchronous Reset:       0      0.0%
+  No Reset:                0      0.0%
+
+Clock Domain Distribution:
+  clk:                    32    100.0%
+
+COMBINATIONAL RESOURCES
+--------------------------------------------------------------------------------
+Logic Type              Count    Inputs    Outputs    Levels
+--------------------------------------------------------------------------------
+Adder (32-bit):           1       64         33         6
+Comparator (33-bit):      1       33          1         3
+AND Gates:               20        -          -         -
+OR Gates:                 6        -          -         -
+XOR Gates:               18        -          -         -
+MUX:                     10        -          -         -
+Inverters:                8        -          -         -
+Buffers:                  4        -          -         -
+
+Logic Depth:
+  Minimum:                1 level
+  Average:                3 levels
+  Maximum:                6 levels (critical path)
+
+ARITHMETIC RESOURCES
+--------------------------------------------------------------------------------
+Component Type          Count    Width    Implementation
+--------------------------------------------------------------------------------
+Incrementer:              1       32      Ripple-carry adder
+Comparator:               1       33      Parallel comparator
+
+TIMING RESOURCES
+--------------------------------------------------------------------------------
+Clock Domains:            1
+  clk (100 MHz)
+
+Sequential Paths:        32
+Combinational Paths:     68
+Total Timing Paths:     100
+
+Critical Paths:          10 (top 10 analyzed)
+False Paths:              1 (rst_n)
+Multi-cycle Paths:        0
+
+MEMORY RESOURCES
+--------------------------------------------------------------------------------
+Type                    Count    Bits    Implementation
+--------------------------------------------------------------------------------
+Registers:               32      32      Flip-flops
+RAM/ROM:                  0       0      None
+FIFO:                     0       0      None
+
+INTERFACE RESOURCES
+--------------------------------------------------------------------------------
+Interface Type          Count    Width    Direction
+--------------------------------------------------------------------------------
+Clock Input:              1       1       Input
+Reset Input:              1       1       Input (active-low)
+Control Input:            1       1       Input
+Data Output:              1      32       Output
+Status Output:            1       1       Output
+
+Total I/O:               35 bits
+  Input:                  3 bits
+  Output:                33 bits (32-bit data + 1 status)
+
+DESIGN CHARACTERISTICS
+--------------------------------------------------------------------------------
+Design Style:            Synchronous
+Clock Strategy:          Single clock domain
+Reset Strategy:          Asynchronous reset
+Enable Strategy:         Synchronous enable
+Optimization:            Area & timing optimized
+
+Design Complexity:       Low-Medium
+  Logic Levels:          6 (acceptable)
+  Fanout:               <32 (good)
+  Critical Paths:        10 (manageable)
+
+RESOURCE EFFICIENCY
+--------------------------------------------------------------------------------
+Metric                          Value         Rating
+--------------------------------------------------------------------------------
+Gate Count Efficiency:          Good          ✓
+Area Utilization:               Optimal       ✓
+Timing Margin:                  12.3%         ✓
+Power Efficiency:               Excellent     ✓
+Routability:                    Easy          ✓
+
+================================================================================
+RESOURCE SUMMARY
+================================================================================
+Total Cells:               112
+Total Nets:                145
+Total Area:             1772.33 µm²
+Design Efficiency:      Excellent ✓
+================================================================================
