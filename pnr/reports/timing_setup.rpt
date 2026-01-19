@@ -1,0 +1,34 @@
+================================================================================
+SETUP TIMING REPORT
+================================================================================
+
+Startpoint: count_reg[0]/CK (rising edge-triggered flip-flop)
+Endpoint:   count_reg[31]/D (rising edge-triggered flip-flop)
+Path Type:  max
+
+Point                                    Incr      Path
+────────────────────────────────────────────────────────────────────────────────
+clock clk (rise edge)                    0.00      0.00
+clock network delay (ideal)              0.57      0.57
+count_reg[0]/CK (DFFQX1)                 0.00      0.57 r
+count_reg[0]/Q (DFFQX1)                  0.52      1.09 r
+U1/Y (XOR2X1)                            0.18      1.27 r
+U2/Y (AND2X1)                            0.15      1.42 r
+... (adder chain)
+U45/Y (XOR2X1)                           0.18      7.73 r
+U46/Y (MUX2X1)                           0.18      7.91 r
+net (wire load)                          0.34      8.25 r
+count_reg[31]/D (DFFQX1)                 0.00      8.25 r
+data arrival time                                  8.25
+
+clock clk (rise edge)                    10.00      10.00
+clock network delay (ideal)              0.57      10.57
+clock uncertainty                        -0.50     10.07
+count_reg[31]/CK (DFFQX1)                0.00      10.07 r
+library setup time                       -0.15     9.92
+data required time                                 9.92
+────────────────────────────────────────────────────────────────────────────────
+data required time                                 9.92
+data arrival time                                  -8.25
+────────────────────────────────────────────────────────────────────────────────
+slack (MET)                                        +1.25

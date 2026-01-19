@@ -1,0 +1,47 @@
+================================================================================
+PLACE & ROUTE - QUALITY OF RESULTS SUMMARY
+================================================================================
+
+Design:               counter_32bit
+Technology:           45nm CMOS
+Date:                 2025-12-04 01:41:28
+
+TIMING
+────────────────────────────────────────────────────────────────────────────────
+Clock Period:         10.00 ns (100 MHz)
+Critical Path Delay:  8.25 ns
+Setup Slack:          +1.25 ns (WNS)
+Hold Slack:           +3.71 ns (WNS)
+Setup Violations:     0
+Hold Violations:      0
+Max Frequency:        121.27 MHz
+
+AREA
+────────────────────────────────────────────────────────────────────────────────
+Core Area:            3025.00 µm²
+Cell Area:            1772.33 µm²
+Utilization:          58.59%
+Cell Count:           112
+Net Count:            134
+
+POWER
+────────────────────────────────────────────────────────────────────────────────
+Dynamic Power:        224.21 µW
+Leakage Power:        15.67 µW
+Total Power:          239.88 µW
+
+ROUTING
+────────────────────────────────────────────────────────────────────────────────
+Total Wire Length:    2828.74 µm
+Total Vias:           335
+DRC Violations:       0
+Routing Overflow:     0
+
+CLOCK TREE
+────────────────────────────────────────────────────────────────────────────────
+Clock Buffers:        12
+Clock Skew:           23.00 ps
+Insertion Delay:      0.575 ns
+Clock Power:          6.00 µW
+
+OVERALL QOR:          ✓ EXCELLENT

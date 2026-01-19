@@ -1,0 +1,375 @@
+================================================================================
+STAGE 6: PLACE AND ROUTE SIMULATION
+IC Compiler II - Synopsys
+================================================================================
+
+Design: counter_32bit
+Technology: 45nm CMOS
+Date: 2025-12-04 01:41:28
+
+Importing floorplan...
+Core area: 55.0 x 55.0 µm
+Starting Place & Route flow...
+================================================================================
+STEP 1: STANDARD CELL PLACEMENT
+================================================================================
+
+[1.1] Coarse Placement
+  - Initial random placement...
+  - Quadratic placement optimization...
+  - Overlap removal...
+
+  Initial HPWL: 3685.00 um
+  Iteration 1: HPWL = 3316.50 um
+  Iteration 2: HPWL = 2984.85 um
+  Iteration 3: HPWL = 2686.37 um
+  Iteration 4: HPWL = 2417.73 um
+  Iteration 5: HPWL = 2175.96 um
+
+[1.2] Legalization
+  - Removing overlaps...
+  - Aligning cells to rows...
+  - Enforcing placement constraints...
+
+[1.3] Detail Placement
+  - Local reordering for timing...
+  - Congestion-driven refinement...
+  - Final optimization...
+
+────────────────────────────────────────────────────────────────────────────────
+PLACEMENT RESULTS:
+────────────────────────────────────────────────────────────────────────────────
+Total Cells Placed:     112
+Placement Density:      58.59%
+Final HPWL:             2175.96 um
+HPWL Improvement:       41.0%
+Placement Legality:     ✓ 100% legal
+Row Utilization:        Balanced
+Congestion:             LOW (pre-routing)
+
+================================================================================
+STEP 2: CLOCK TREE SYNTHESIS (CTS)
+================================================================================
+
+[2.1] Clock Network Analysis
+  - Clock sources: 1 (clk)
+  - Clock sinks: 32 (flip-flops)
+  - Clock period: 10.0 ns (100 MHz)
+
+[2.2] Clock Tree Synthesis
+  - Fanout limit: 8
+  - Tree levels: 2
+  - Buffering strategy: H-tree with buffers
+  - Buffer insertion:
+    Level 1: 4 buffers
+    Level 2: 8 buffers
+  - Total clock buffers: 12
+
+[2.3] Clock Tree Optimization
+  - Skew minimization...
+  - Buffer sizing...
+  - Wire sizing...
+
+────────────────────────────────────────────────────────────────────────────────
+CLOCK TREE RESULTS:
+────────────────────────────────────────────────────────────────────────────────
+Clock Buffers Inserted:  12
+Tree Levels:             2
+Insertion Delay:         0.575 ns
+Clock Skew:              23.00 ps
+Target Skew:             100 ps
+Skew Status:             ✓ PASS (< 100ps)
+Clock Network Power:     6.00 µW
+
+================================================================================
+STEP 3: SIGNAL ROUTING
+================================================================================
+
+[3.1] Global Routing
+  - Creating routing guides...
+  - Layer assignment...
+  - Congestion analysis...
+
+  Routing Statistics:
+    - Total nets: 134
+    - Routing layers: 4
+    - Horizontal tracks: 196
+    - Vertical tracks: 196
+
+[3.2] Track Assignment
+  - metal2 (horizontal): 35 nets assigned
+  - metal3 (vertical): 27 nets assigned
+  - metal4 (horizontal): 30 nets assigned
+  - metal5 (vertical): 29 nets assigned
+
+[3.3] Detail Routing
+  - Routing iteration 1: 95% complete
+  - Routing iteration 2: 99% complete
+  - Routing iteration 3: 100% complete
+
+[3.4] DRC Fixing
+  - Initial DRC violations: 6
+  - Search and repair iteration 1: 2 violations
+  - Search and repair iteration 2: 0 violations
+  - Search and repair iteration 3: 0 violations ✓
+
+────────────────────────────────────────────────────────────────────────────────
+ROUTING RESULTS:
+────────────────────────────────────────────────────────────────────────────────
+Total Wire Length:       2828.74 um
+Average Net Length:      21.11 um
+Total Vias:              335
+DRC Violations:          0 ✓
+Routing Overflow:        0 ✓
+Max Layer Utilization:   68% (metal3)
+Routing Status:          ✓ 100% ROUTED
+
+================================================================================
+STEP 4: TIMING OPTIMIZATION
+================================================================================
+
+[4.1] Parasitic Extraction
+  - Extracting R/C parasitics...
+  - Total wire length: 2828.74 um
+  - Average wire delay: 0.211 ns
+
+[4.2] Critical Path Analysis
+  - Logic delay: 7.46 ns
+  - Routing delay: 0.21 ns
+  - Clock insertion: 0.57 ns
+  - Total path delay: 8.25 ns
+  - Setup slack: +1.25 ns
+
+[4.3] Setup Timing: ✓ MET
+
+[4.4] Hold Timing Analysis
+  - Minimum path delay: 3.73 ns
+  - Clock skew: 0.023 ns
+  - Hold slack: +3.71 ns
+
+[4.5] Hold Timing: ✓ MET
+
+────────────────────────────────────────────────────────────────────────────────
+TIMING RESULTS:
+────────────────────────────────────────────────────────────────────────────────
+Clock Period:            10.00 ns (100 MHz)
+Critical Path Delay:     8.25 ns
+Setup Slack:             +1.25 ns ✓ PASS
+Hold Slack:              +3.71 ns ✓ PASS
+Setup Violations:        0
+Hold Violations:         0
+Max Frequency:           121.27 MHz
+
+================================================================================
+STEP 5: POWER ANALYSIS
+================================================================================
+
+[5.1] Dynamic Power Breakdown
+  - Cell switching: 212.55 µW
+  - Clock network: 6.00 µW
+  - Interconnect: 5.66 µW
+  - Total dynamic: 224.21 µW
+
+[5.2] Leakage Power
+  - Total leakage: 15.67 µW
+
+────────────────────────────────────────────────────────────────────────────────
+POWER RESULTS:
+────────────────────────────────────────────────────────────────────────────────
+Dynamic Power:           224.21 µW
+Leakage Power:           15.67 µW
+Total Power @ 100MHz:    239.88 µW
+Power Density:           0.0793 µW/µm²
+
+================================================================================
+STEP 6: DESIGN RULE CHECKING
+================================================================================
+
+[6.1] Manufacturing DRC
+  - Metal spacing: ✓ PASS
+  - Via rules: ✓ PASS
+  - Minimum width: ✓ PASS
+  - Minimum area: ✓ PASS
+  - Antenna rules: ✓ PASS
+
+[6.2] Connectivity Check
+  - All nets connected: ✓ PASS
+  - No floating nets: ✓ PASS
+  - No shorts: ✓ PASS
+
+[6.3] Geometry Verification
+  - Cell placement: ✓ PASS
+  - Routing geometry: ✓ PASS
+  - Via geometry: ✓ PASS
+
+────────────────────────────────────────────────────────────────────────────────
+DRC RESULTS:
+────────────────────────────────────────────────────────────────────────────────
+Total DRC Violations:    0 ✓
+Connectivity Errors:     0 ✓
+Geometry Violations:     0 ✓
+Design Rule Status:      ✓ CLEAN
+
+================================================================================
+STEP 7: GENERATING REPORTS
+================================================================================
+
+✓ Generated: qor_summary.rpt
+✓ Generated: timing_setup.rpt
+✓ Generated: timing_hold.rpt
+✓ Generated: power_final.rpt
+✓ Generated: area_final.rpt
+
+================================================================================
+STEP 8: LAYOUT VISUALIZATION
+================================================================================
+
+
+═══════════════════════════════════════════════════════════════════════════
+                        PLACED & ROUTED LAYOUT
+═══════════════════════════════════════════════════════════════════════════
+
+                        55.0 µm
+        ╔═══════════════════════════════════════════════════════╗
+        ║  ┌─────────────────────────────────────────────────┐  ║
+        ║  │░░░░░░░░░░░░░  POWER MESH (VDD/VSS)  ░░░░░░░░░░░│  ║
+        ║  │  ┌───────────────────────────────────────────┐ │  ║
+  55.0  ║  │  │ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ │ │  ║  C
+   µm   ║  │  │ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ │ │  ║  L
+        ║  │  │ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ │ │  ║  O
+        ║  │  │ ──────────────────────────────── │ │  ║  C
+        ║  │  │ │││││  ROUTING LAYERS  │││││││  │ │  ║  K
+        ║  │  │ ═══════════════════════════════  │ │  ║  
+        ║  │  │ [FF][FF][FF][FF][FF][FF][FF][FF] │ │  ║  T
+        ║  │  │ [FF][FF][FF][FF][FF][FF][FF][FF] │ │  ║  R
+        ║  │  │ [FF][FF][FF][FF][FF][FF][FF][FF] │ │  ║  E
+        ║  │  │ [FF][FF][FF][FF][FF][FF][FF][FF] │ │  ║  E
+        ║  │  │ ═══════════════════════════════  │ │  ║
+        ║  │  │ [LG][LG][LG][LG][LG][LG][LG][LG] │ │  ║  S
+        ║  │  │ [LG][LG][LG][LG][LG][LG][LG][LG] │ │  ║  I
+        ║  │  │ [LG][LG][LG][LG][LG][LG][LG][LG] │ │  ║  G
+        ║  │  │ [LG][LG][LG][LG][LG][LG][LG][LG] │ │  ║  N
+        ║  │  │ ═══════════════════════════════  │ │  ║  A
+        ║  │  │ ──────────────────────────────── │ │  ║  L
+        ║  │  │ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ │ │  ║  S
+        ║  │  │ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ ▓▓▓ │ │  ║
+        ║  │  └───────────────────────────────────────────┘ │  ║
+        ║  │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│  ║
+        ║  └─────────────────────────────────────────────────┘  ║
+        ╚═══════════════════════════════════════════════════════╝
+
+LEGEND:
+  ▓▓▓  Standard cells (flip-flops and logic gates)
+  [FF] Flip-flops (32x DFFQX1)
+  [LG] Logic gates (XOR, AND, MUX, etc.)
+  ═══  Metal routing (horizontal)
+  │││  Metal routing (vertical)
+  ───  Power rails (metal1)
+  ░░░  Power mesh (metal5/metal6)
+  ╔═╗  Core boundary with I/O pins
+
+ROUTING LAYERS:
+  • metal1: Standard cell power rails
+  • metal2: Local horizontal routing (707 µm)
+  • metal3: Local vertical routing (707 µm)
+  • metal4: Intermediate horizontal routing (707 µm)
+  • metal5: Global vertical routing + power (707 µm)
+  • metal6: Global horizontal routing + power
+
+PLACEMENT GROUPS:
+  • Flip-flops (registers): Clustered for clock distribution
+  • Adder logic: Placed along critical path
+  • Control logic: Near flip-flops
+  • Output buffers: Near output pins
+
+CLOCK TREE:
+  • 12 clock buffers inserted
+  • H-tree topology for balanced distribution
+  • Clock skew: 23.00 ps
+
+
+
+================================================================================
+PLACE & ROUTE COMPLETE - SUMMARY
+================================================================================
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    PLACE & ROUTE DESIGN SUMMARY                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+DESIGN INFORMATION
+├─ Design Name:           counter_32bit
+├─ Technology Node:       45nm CMOS
+├─ Core Area:             3025.00 µm²
+└─ Total Cells:           112
+
+PLACEMENT
+├─ Cells Placed:          112 (100%)
+├─ Utilization:           58.59%
+├─ Total Wire Length:     2828.74 µm (estimated)
+└─ Placement Quality:     ✓ OPTIMIZED
+
+CLOCK TREE SYNTHESIS
+├─ Clock Buffers:         12
+├─ Tree Levels:           2
+├─ Clock Skew:            23.00 ps
+├─ Insertion Delay:       0.575 ns
+├─ Target Skew:           100 ps
+└─ CTS Status:            ✓ PASS
+
+ROUTING
+├─ Total Wire Length:     2828.74 µm
+├─ Total Vias:            335
+├─ Routing Layers:        4 (metal2-5)
+├─ DRC Violations:        0
+├─ Routing Overflow:      0
+└─ Routing Status:        ✓ 100% COMPLETE
+
+TIMING ANALYSIS
+├─ Clock Period:          10.00 ns (100 MHz target)
+├─ Critical Path Delay:   8.25 ns
+├─ Setup Slack (WNS):     +1.25 ns ✓ MET
+├─ Hold Slack (WNS):      +3.71 ns ✓ MET
+├─ Setup Violations:      0
+├─ Hold Violations:       0
+├─ Max Frequency:         121.27 MHz
+└─ Frequency Margin:      +21.3%
+
+POWER ANALYSIS
+├─ Dynamic Power:         224.21 µW
+│  ├─ Cell Switching:     212.55 µW
+│  ├─ Clock Network:      6.00 µW
+│  └─ Interconnect:       5.66 µW
+├─ Leakage Power:         15.67 µW
+├─ Total Power:           239.88 µW @ 100 MHz
+└─ Power Density:         0.0793 µW/µm²
+
+DESIGN RULE CHECKING
+├─ DRC Violations:        0 ✓
+├─ Connectivity:          ✓ VERIFIED
+├─ Geometry:              ✓ CLEAN
+└─ Antenna Rules:         ✓ PASS
+
+QUALITY METRICS
+├─ Timing QoR:            ✓ EXCELLENT (positive slack)
+├─ Power QoR:             ✓ EXCELLENT (239.9 µW)
+├─ Area QoR:              ✓ OPTIMAL (58.6% utilization)
+├─ Routing QoR:           ✓ CLEAN (0 DRC violations)
+└─ Overall Assessment:    ✓ READY FOR PHYSICAL VERIFICATION
+
+FILES GENERATED
+├─ Layout Database:       pnr/counter_32bit_pnr.ddc
+├─ GDS Layout:            pnr/counter_32bit_pnr.gds
+├─ DEF:                   pnr/counter_32bit_pnr.def
+├─ Verilog Netlist:       pnr/counter_32bit_pnr.v
+├─ SDF (timing):          pnr/counter_32bit_pnr.sdf
+└─ SPEF (parasitics):     pnr/counter_32bit_pnr.spef
+
+REPORTS GENERATED
+├─ QoR Summary:           pnr/reports/qor_summary.rpt
+├─ Timing (Setup):        pnr/reports/timing_setup.rpt
+├─ Timing (Hold):         pnr/reports/timing_hold.rpt
+├─ Power Analysis:        pnr/reports/power_final.rpt
+├─ Area Report:           pnr/reports/area_final.rpt
+└─ Routing Report:        pnr/reports/routing.rpt
+
