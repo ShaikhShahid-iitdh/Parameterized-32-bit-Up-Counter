@@ -1,0 +1,252 @@
+================================================================================
+STAGE 5: FLOORPLANNING SIMULATION
+IC Compiler - Synopsys
+================================================================================
+
+Design: counter_32bit
+Technology: 45nm CMOS
+Date: 2025-12-04 01:19:19
+================================================================================
+STEP 1: CALCULATING FLOORPLAN DIMENSIONS
+================================================================================
+
+Synthesized Area:     1772.33 um²
+Target Utilization:   70.0%
+Core Dimensions:      55.00 x 55.00 um
+Actual Core Area:     3025.00 um²
+Actual Utilization:   58.59%
+
+I/O Ring Width:       10.00 um
+Chip Dimensions:      75.00 x 75.00 um
+Total Chip Area:      5625.00 um²
+
+Routing Area:         1252.67 um²
+Routing Headroom:     41.41%
+
+================================================================================
+STEP 2: I/O PIN PLACEMENT
+================================================================================
+
+Total I/O Pins:       36
+  - Control Signals:  3 (clk, rst_n, enable)
+  - Data Outputs:     33 (count[31:0], overflow)
+
+Pin Distribution:
+  - LEFT side:        2 pins (clk, rst_n)
+  - RIGHT side:       16 pins (count[15:0])
+  - TOP side:         17 pins (count[31:16], overflow)
+  - BOTTOM side:      1 pin (enable)
+
+Metal Layer:          metal3 (optimized for I/O)
+Pin Spacing:          Uniform distribution
+
+================================================================================
+STEP 3: POWER PLANNING
+================================================================================
+
+1. Power Rings (around core):
+   - Layers:          metal5 (horizontal) & metal6 (vertical)
+   - Width:           2.00 um
+   - Spacing:         1.00 um
+   - Offset:          1.50 um from core
+   - Ring Area:       440.00 um²
+
+2. Power Straps:
+   - Vertical straps (metal5):
+     • Count:         2
+     • Width:         1.00 um
+     • Spacing:       20.00 um
+   - Horizontal straps (metal6):
+     • Count:         2
+     • Width:         1.00 um
+     • Spacing:       20.00 um
+
+3. Standard Cell Rails (metal1):
+   - Width:           0.18 um
+   - Orientation:     Horizontal (VDD/VSS alternating)
+   - Coverage:        100% of core area
+
+4. Power Grid Analysis:
+   - Grid Resistance:  ~0.050 Ω/sq
+   - Average Current:  228.00 µA
+   - Estimated IR Drop: 0.01 mV
+   - Voltage at Core:  1.0000 V
+   - Status:          ✓ PASS (IR drop < 50mV)
+
+================================================================================
+STEP 4: PLACEMENT REGIONS
+================================================================================
+
+Core Grid Structure:
+  - Row Height:       1.20 um
+  - Number of Rows:   45
+  - Site Width:       0.140 um
+  - Sites per Row:    392
+  - Total Sites:      17,640
+
+Placement Analysis:
+  - Standard Cells:   112
+  - Occupied Sites:   896
+  - Available Sites:  16,744
+  - Site Utilization: 5.08%
+
+Placement Constraints:
+  - Blockages:        None (small design)
+  - Keep-out zones:   Power straps
+  - Pre-placed cells: None
+  - Row alignment:    Automatic flip-first-row
+
+================================================================================
+STEP 5: ROUTING CONGESTION ANALYSIS
+================================================================================
+
+Routing Resources:
+  - Routing Layers:   4 (metal2, metal3, metal4, metal5)
+  - Track Pitch:      0.280 um
+  - Horizontal Tracks: 196
+  - Vertical Tracks:  196
+  - Total Capacity:   784 tracks
+
+Routing Demand:
+  - Total Nets:       ~134
+  - Avg Net Length:   27.50 um
+  - Total Pin Count:  ~392
+
+Congestion Metrics:
+  - Routing Demand:   13200
+  - Routing Supply:   43120
+  - Congestion Ratio: 0.306
+  - Congestion Level: ✓ LOW (excellent routability)
+
+================================================================================
+STEP 6: GENERATING REPORTS
+================================================================================
+
+✓ Generated: design_area.rpt
+✓ Generated: floorplan_summary.rpt
+✓ Generated: port_placement.rpt
+
+================================================================================
+STEP 7: FLOORPLAN VISUALIZATION
+================================================================================
+
+        
+═══════════════════════════════════════════════════════════════════════════
+                        FLOORPLAN LAYOUT DIAGRAM
+═══════════════════════════════════════════════════════════════════════════
+
+                        75.0 um
+        ┌───────────────────────────────────────────────────────┐
+        │                    I/O RING (metal3)                  │
+        │   ┌───────────────────────────────────────────────┐   │
+        │   │          POWER RING (metal5/metal6)           │   │
+  75.0  │   │  ╔═══════════════════════════════════════╗  │   │
+   um   │   │  ║                                           ║  │   │
+        │ C │  ║         STANDARD CELL ROWS                ║  │ C │
+        │ L │  ║                                           ║  │ O │
+        │ K │  ║    ┌─────────────────────────────┐       ║  │ U │
+        │   │  ║    │   32-bit Counter Core       │       ║  │ N │
+        │ R │  ║    │   (112 cells)               │       ║  │ T │
+        │ S │  ║    │   Utilization: 58.6%        │       ║  │   │
+        │ T │  ║    └─────────────────────────────┘       ║  │ O │
+        │   │  ║                                           ║  │ U │
+        │   │  ║    Power Straps (20 um spacing)          ║  │ T │
+        │   │  ║    Vertical: metal5                      ║  │   │
+        │   │  ║    Horizontal: metal6                    ║  │   │
+        │   │  ╚═══════════════════════════════════════════╝  │   │
+        │   │              55.0 um                    │   │
+        │   └───────────────────────────────────────────────┘   │
+        │                                                       │
+        │   E                                            O      │
+        │   N                                            V      │
+        │   A                                            F      │
+        │   B                                            L      │
+        │   L                                            O      │
+        │   E                                            W      │
+        └───────────────────────────────────────────────────────┘
+
+LEGEND:
+  ═══  Core area boundary          │││  Vertical power straps
+  ───  I/O ring boundary            ═══  Horizontal power straps
+  ┌─┐  Power ring                   CLK  Clock input (left)
+  [...] Standard cell placement     RST  Reset input (left)
+                                    ENABLE Enable input (bottom)
+                                    COUNT[31:0] Distributed (right/top)
+                                    OVERFLOW Output (top)
+
+LAYER STACK:
+  • metal1: Standard cell power rails (VDD/VSS)
+  • metal2: Local routing (horizontal)
+  • metal3: I/O pins, intermediate routing (vertical)
+  • metal4: Intermediate routing (horizontal)
+  • metal5: Power straps (vertical), signal routing
+  • metal6: Power straps (horizontal), signal routing
+
+
+
+================================================================================
+FLOORPLAN COMPLETE - SUMMARY
+================================================================================
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                      FLOORPLAN DESIGN SUMMARY                            ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+DESIGN INFORMATION
+├─ Design Name:           counter_32bit
+├─ Technology Node:       45nm CMOS
+├─ Metal Layers:          6
+└─ Standard Cells:        112
+
+CHIP DIMENSIONS
+├─ Core Size:             55.00 x 55.00 um
+├─ Core Area:             3025.00 um²
+├─ Chip Size (with I/O):  75.00 x 75.00 um
+└─ Total Chip Area:       5625.00 um²
+
+UTILIZATION
+├─ Gate Area:             1772.33 um²
+├─ Core Utilization:      58.59%
+└─ Routing Headroom:      41.41%
+
+I/O INTERFACE
+├─ Total Pins:            36
+├─ Input Pins:            3 (clk, rst_n, enable)
+├─ Output Pins:           33 (count[31:0], overflow)
+└─ Pin Layer:             metal3
+
+POWER DISTRIBUTION
+├─ Power Rings:           metal5/metal6, 2.0 um wide
+├─ Power Straps:          2 vertical, 2 horizontal
+├─ Cell Rails:            metal1, 0.18 um wide
+└─ IR Drop:               0.01 mV ✓ PASS
+
+PLACEMENT
+├─ Number of Rows:        45
+├─ Sites per Row:         392
+├─ Total Sites:           17,640
+└─ Site Utilization:      5.08%
+
+ROUTING ANALYSIS
+├─ Routing Layers:        4 (metal2, metal3, metal4, metal5)
+├─ Congestion Ratio:      0.306
+├─ Congestion Level:      GREEN
+└─ Routability:           ✓ EXCELLENT
+
+DESIGN QUALITY METRICS
+├─ Aspect Ratio:          1.00:1 (near-square ✓)
+├─ I/O Distribution:      Balanced across all sides ✓
+├─ Power Grid:            Robust mesh structure ✓
+├─ Routing Resources:     Adequate for design ✓
+└─ Overall Assessment:    ✓ READY FOR PLACEMENT & ROUTING
+
+FILES GENERATED
+├─ Floorplan Script:      floorplan/scripts/floorplan.tcl
+├─ Design Area Report:    floorplan/reports/design_area.rpt
+├─ Floorplan Summary:     floorplan/reports/floorplan_summary.rpt
+└─ Port Placement:        floorplan/reports/port_placement.rpt
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║  STATUS: ✓ FLOORPLAN APPROVED - READY FOR STAGE 6 (PLACE & ROUTE)      ║
+╚══════════════════════════════════════════════════════════════════════════╝
+

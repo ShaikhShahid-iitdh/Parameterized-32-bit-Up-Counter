@@ -1,0 +1,16 @@
+================================================================================
+PORT PLACEMENT REPORT
+================================================================================
+
+Port Name            Side       Position (um)        Layer     
+──────────────────── ────────── ──────────────────── ──────────
+clk                  LEFT       (0.00, 41.25)        metal3    
+rst_n                LEFT       (0.00, 13.75)        metal3    
+enable               BOTTOM     (13.75, 0.00)        metal3    
+overflow             TOP        (41.25, 55.00)       metal3    
+count[0]             RIGHT      (55.00, 3.24)        metal3    
+count[1]             RIGHT      (55.00, 6.47)        metal3    
+count[2]             RIGHT      (55.00, 9.71)        metal3    
+count[3]             RIGHT      (55.00, 12.94)       metal3    
+count[4]             RIGHT      (55.00, 16.18)       metal3    
+count[5]             RIGHT      (55.00, 19.41)       metal3    

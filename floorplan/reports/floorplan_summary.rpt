@@ -1,0 +1,30 @@
+================================================================================
+FLOORPLAN SUMMARY REPORT
+================================================================================
+
+Design:               counter_32bit
+Technology:           45nm CMOS
+Metal Layers:         6
+
+FLOORPLAN STATISTICS
+────────────────────────────────────────────────────────────────────────────────
+Core Utilization:     58.59%
+Number of Rows:       45
+Sites per Row:        392
+Total Sites:          17,640
+I/O Pin Count:        36
+Standard Cell Count:  112
+
+POWER GRID
+────────────────────────────────────────────────────────────────────────────────
+Power Rings:          metal5/metal6, 2.00 um wide
+Vertical Straps:      2 (metal5)
+Horizontal Straps:    2 (metal6)
+Cell Rails:           metal1, 0.18 um wide
+Estimated IR Drop:    0.01 mV
+
+ROUTING ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Routing Layers:       4 (metal2-metal5)
+Congestion Ratio:     0.306
+Congestion Status:    GREEN
