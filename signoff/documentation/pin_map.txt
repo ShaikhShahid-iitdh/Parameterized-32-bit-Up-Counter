@@ -1,0 +1,42 @@
+================================================================================
+PIN MAP - counter_32bit
+================================================================================
+
+Pin Name             Direction    Side       Type           
+────────────────────────────────────────────────────────────────────────────────
+clk                  Input        LEFT       Clock          
+rst_n                Input        LEFT       Reset (active-low)
+enable               Input        BOTTOM     Control        
+count[0]             Output       RIGHT      Data           
+count[1]             Output       RIGHT      Data           
+count[2]             Output       RIGHT      Data           
+count[3]             Output       RIGHT      Data           
+count[4]             Output       RIGHT      Data           
+count[5]             Output       RIGHT      Data           
+count[6]             Output       RIGHT      Data           
+count[7]             Output       RIGHT      Data           
+count[8]             Output       RIGHT      Data           
+count[9]             Output       RIGHT      Data           
+count[10]            Output       RIGHT      Data           
+count[11]            Output       RIGHT      Data           
+count[12]            Output       RIGHT      Data           
+count[13]            Output       RIGHT      Data           
+count[14]            Output       RIGHT      Data           
+count[15]            Output       RIGHT      Data           
+count[16]            Output       TOP        Data           
+count[17]            Output       TOP        Data           
+count[18]            Output       TOP        Data           
+count[19]            Output       TOP        Data           
+count[20]            Output       TOP        Data           
+count[21]            Output       TOP        Data           
+count[22]            Output       TOP        Data           
+count[23]            Output       TOP        Data           
+count[24]            Output       TOP        Data           
+count[25]            Output       TOP        Data           
+count[26]            Output       TOP        Data           
+count[27]            Output       TOP        Data           
+count[28]            Output       TOP        Data           
+count[29]            Output       TOP        Data           
+count[30]            Output       TOP        Data           
+count[31]            Output       TOP        Data           
+overflow             Output       TOP        Status         

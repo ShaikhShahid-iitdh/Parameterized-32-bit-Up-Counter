@@ -1,0 +1,15 @@
+================================================================================
+LAYER STACK - 45nm CMOS
+================================================================================
+
+Layer           Type            Thickness       Purpose                       
+────────────────────────────────────────────────────────────────────────────────
+Substrate       P-type          725 µm          Silicon wafer                 
+NWELL           Diffusion       0.3 µm          N-well regions                
+Active          Diffusion       0.2 µm          Source/Drain                  
+Poly            Gate            0.12 µm         Gate electrode                
+Contact         Via             0.18 µm         Contacts                      
+Metal1          Metal           0.24 µm         Power rails                   
+Metal2-5        Metal           0.28 µm         Signal routing                
+Metal6          Metal           0.36 µm         Power mesh                    
+Passivation     Protect         1.0 µm          Die protection                

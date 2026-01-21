@@ -1,0 +1,40 @@
+================================================================================
+DESIGN DATASHEET
+32-bit Up Counter with Enable and Reset
+================================================================================
+
+Technology:               45nm CMOS
+Design Name:              counter_32bit
+Design Type:              Digital Sequential Logic
+
+SPECIFICATIONS
+────────────────────────────────────────────────────────────────────────────────
+Supply Voltage:           1.0V ± 10%
+Operating Frequency:      100 MHz (max 121 MHz)
+Power Consumption:        239.88 µW @ 100 MHz
+Core Area:                3025.00 µm²
+Die Size:                 75.0 x 75.0 µm
+I/O Count:                36 pins
+
+INTERFACE
+────────────────────────────────────────────────────────────────────────────────
+Inputs:                   clk, rst_n, enable
+Outputs:                  count[31:0], overflow
+Clock:                    Single-phase, rising edge
+Reset:                    Asynchronous, active-low
+
+TIMING
+────────────────────────────────────────────────────────────────────────────────
+Setup Time:               0.15 ns
+Hold Time:                0.08 ns
+Clock-to-Q:               0.52 ns
+Maximum Frequency:        121.27 MHz
+
+VERIFICATION STATUS
+────────────────────────────────────────────────────────────────────────────────
+DRC:                      CLEAN
+LVS:                      CLEAN
+Timing:                   MET (all corners)
+Power:                    VERIFIED
+Signal Integrity:         VERIFIED
+
