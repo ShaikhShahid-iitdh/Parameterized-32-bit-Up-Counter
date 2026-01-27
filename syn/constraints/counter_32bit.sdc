@@ -28,7 +28,7 @@ set_clock_transition 0.1 [get_clocks $clk_name]
 
 # Clock Latency
 set_clock_latency -source 1.0 [get_clocks $clk_name]
-set_clock_latency 0.5 [get_clocks $clk_name]
+set_clock_latency -network 0.5 [get_clocks $clk_name]
 
 # ============================================================================
 # 2. INPUT CONSTRAINTS
@@ -107,7 +107,7 @@ set_fix_hold [get_clocks $clk_name]
 # ============================================================================
 
 # Reset is asynchronous - no timing check needed on reset path
-set_false_path -from [get_ports rst_n]
+set_false_path -from [get_ports rst_n] -to [all register]
 
 # ============================================================================
 # 9. DESIGN ATTRIBUTES
