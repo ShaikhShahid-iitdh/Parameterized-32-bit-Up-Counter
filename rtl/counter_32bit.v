@@ -1,10 +1,6 @@
 // ============================================================================
 // Parameterized 32-bit Up Counter with Enable and Reset
 // ============================================================================
-// Description: Synchronous up counter with enable and reset functionality
-// Author: Design Team
-// Date: December 3, 2025
-// ============================================================================
 
 module counter_32bit #(
     parameter WIDTH = 32  // Counter width (parameterized)
