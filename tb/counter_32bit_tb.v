@@ -46,13 +46,6 @@ module counter_32bit_tb;
         $dumpfile("counter_32bit_tb.vcd");
         $dumpvars(0, counter_32bit_tb);
         
-        // Display header
-        $display("============================================");
-        $display("  32-bit Counter Testbench Started");
-        $display("============================================");
-        $display("Time\t\tReset\tEnable\tCount\t\tOverflow");
-        $display("--------------------------------------------");
-        
         // Test 1: Reset test
         #20 rst_n = 1;
         #10;
@@ -100,9 +93,6 @@ module counter_32bit_tb;
         
         // End simulation
         #100;
-        $display("============================================");
-        $display("  Testbench Completed Successfully");
-        $display("============================================");
         $finish;
     end
 
